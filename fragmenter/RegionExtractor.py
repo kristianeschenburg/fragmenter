@@ -45,7 +45,7 @@ class Extractor(object):
 
             rois = list(map(str, label_table.values()))
 
-            rois = ['_'.join(reg.split('_')[1:]) for reg in rois]
+            rois = ['_'.join(reg.split('_')[1:]) if len(reg.split('_')) > 1 else ''.join(reg.split('_')) for reg in rois]
             roi_index = list(label_table.keys())
 
         # otherwise try loaded freesurfer-style annotation
@@ -92,3 +92,23 @@ class Extractor(object):
                 subregion_parcels[k][u] = idx[np.where(labels == u)[0]]
 
         return subregion_parcels
+
+    def indices(self, parcelmap, regions):
+
+        """
+        Returns all indices for list of regions.
+
+        Parameters:
+        - - - - -
+        parcelmap:
+            dictionary of mapped indices to regions names
+        regions: list
+            names of regions for which to return indices
+        """
+
+        indices = []
+        for r in regions:
+            indices.append(parcelmap[r])
+        indices = np.concatenate(indices)
+        
+        return indices
