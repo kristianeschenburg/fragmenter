@@ -6,7 +6,7 @@
 [![GitHub HitCount](http://hits.dwyl.io/miykael/parcellation_fragmenter.svg)](http://hits.dwyl.io/miykael/parcellation_fragmenter)
 
 
-# Parcellation Fragmenter
+# Fragmenter
 
 Fragments FreeSurfer parcellation annotation in N-equal sized parcels. Besides looking beautiful, such surface parcellation could be used as feature extract for machine learning approaches or similar.
 
